@@ -3,3 +3,5 @@
 [![Build Status](https://travis-ci.org/ogijima-library/geonic.svg?branch=master)](https://travis-ci.org/ogijima-library/geonic)
 
 A WordPress plugin which manages geometries.
+
+![](https://www.evernote.com/l/ABXexIRE6etKZZnLfuOgw3mB0vfvwQJpJPAB/image.png)
