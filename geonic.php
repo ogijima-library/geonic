@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Geonic
  * Plugin URI:      https://github.com/ogijima-library/geonic
- * Description:     A WordPress plugin which manages geometries.
+ * Description:     A WordPress plugin that manages geometries.
  * Author:          Takayuki Miyauchi
  * Author URI:      https://miya.io/
  * Text Domain:     geonic
