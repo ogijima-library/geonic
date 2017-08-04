@@ -13,7 +13,6 @@ var config = {
 const latlng = localStorage.getItem( 'location' )
 if ( latlng ) {
   [ config.zoom, config.lat, config.lng ] = latlng.split( ',' )
-  location.hash = config.zoom + ',' + config.lat + ',' + config.lng
 }
 
 // Override the lat and lng from post_meta

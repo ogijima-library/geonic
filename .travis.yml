@@ -1,47 +1,51 @@
 sudo: false
-
 language: php
-
 notifications:
   email:
     on_success: never
     on_failure: change
-
 branches:
   only:
-    - master
-
+  - master
 cache:
   directories:
-    - vendor
-    - $HOME/.composer/cache
-
+  - vendor
+  - "$HOME/.composer/cache"
 matrix:
   include:
-    - php: 7.1
-      env: WP_VERSION=latest
-    - php: 7.1
-      env: WP_VERSION=trunk
-    - php: 7.0
-      env: WP_VERSION=latest
-    - php: 7.0
-      env: WP_VERSION=trunk
-    - php: 5.6
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=trunk
-
+  - php: 7.1
+    env: WP_VERSION=latest
+  - php: 7.1
+    env: WP_VERSION=trunk
+  - php: 7.0
+    env: WP_VERSION=latest
+  - php: 7.0
+    env: WP_VERSION=trunk
+  - php: 5.6
+    env: WP_VERSION=latest
+  - php: 5.6
+    env: WP_VERSION=trunk
 before_script:
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - |
-    if [[ ! -z "$WP_VERSION" ]] ; then
-      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-      if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then
-        composer global require "phpunit/phpunit=4.8.*"
-      else
-        composer global require "phpunit/phpunit=5.7.*"
-      fi
+- export PATH="$HOME/.composer/vendor/bin:$PATH"
+- |
+  if [[ ! -z "$WP_VERSION" ]] ; then
+    bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "5." ]]; then
+      composer global require "phpunit/phpunit=4.8.*"
+    else
+      composer global require "phpunit/phpunit=5.7.*"
     fi
-
+  fi
 script:
-  - phpunit
+- phpunit
+after_success:
+- sed -i -e "s/nightly/${TRAVIS_TAG}/" $(basename $TRAVIS_REPO_SLUG).php
+- curl https://raw.githubusercontent.com/miya0001/auto-build/master/auto-build.sh
+  | bash
+deploy:
+  provider: releases
+  api_key:
+    secure: DC2/v6IbdET5HtkpzJcLt6HE2M31al5HnwRRneO3fN7bAHFEEB2Y8QU8lw/nDm8+Uob/UQi+Plc9vbefcV3zA0YlqYUlGzSQDpsJzSMyeUjddLsMaoKXbd1jxAu83S2F8kH2AOlnIKNw5IPJfCGpnGrPRehj2TOXvi/b2WyIwArbxiIUde23+wveUaCszktY1cyhCZWIBjhV5EKqN87lNcK3vGeMRPda/Nl6D2IaO2w8je109w1gUoJJpAVh4nSFlXfwUPPgWTvA/yV870t1q/xOEzoXxMPMkTm4gehzQWVlcqPPhefWau2NfrD0QrcxthVrPjml4agNis0Dcza42ubMVWBy3OrOYkXirve4aagtaKZJLN8ojUAvmB18shvPqcxrnBOQ31HwN7bLPUUUToWTtF2yDRkoIOyF6AJRRimTYQBAaAw7Bd5l+i+MeY1oANAKkGnIY6Jy6rFDPhfe1AYBDv05R8dwDUWotjJ76ER9CHkUtu6uWjXnmPd0+2S94dZ48RLisF8b2EW/MiYZMIP3RpTingh5PlHJuJUEIPNH7YhAMpDNj6uCkdbF5TOVciAjGTAAYUukAgz0Ks9eAxL4grh/jQPEzwv3diLOGCN66XW+CBwYFpIhpOSbNn+1ZUk8MeHto0ukrF5ZZRAAjAUv/3FPbL0MfCG1Y7Vyz+U=
+  file: $(basename $TRAVIS_REPO_SLUG).zip
+  on:
+    repo: ogijima-library/geonic

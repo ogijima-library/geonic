@@ -38,8 +38,8 @@ add_action( 'admin_enqueue_scripts', function( $hook ) {
 
 add_action( 'add_meta_boxes', function() {
 	add_meta_box( 'meta-box-id',
-		__( 'My Meta Box', 'textdomain' ),
-		'wpdocs_my_display_callback',
+		__( 'Latitude and Longitude', 'geonic' ),
+		'add_meta_boxes_callback',
 		'geometry'
 	);
 } );
@@ -49,14 +49,14 @@ add_action( 'add_meta_boxes', function() {
  *
  * @param WP_Post $post Current post object.
  */
-function wpdocs_my_display_callback( $post ) {
+function add_meta_boxes_callback( $post ) {
 	$tag = plugins_url( 'tags/map.tag', dirname( __FILE__ ) );
 	wp_nonce_field( 'geonic-latlng', 'geonic-latlng-nonce' );
 	?>
 		<div id="geonic-map" style="width=100%; height:300px;"><map></map></div>
 		<p class="">
-			Lat: <input id="geonic-lat" type="text" name="geonic-lat" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lat', true ) ); ?>">
-			Lng: <input id="geonic-lng" type="text" name="geonic-lng" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lng', true ) ); ?>">
+			Latitude: <input id="geonic-lat" type="text" name="geonic-lat" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lat', true ) ); ?>">
+			Longitude: <input id="geonic-lng" type="text" name="geonic-lng" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lng', true ) ); ?>">
 		</p>
 		<script src="<?php echo esc_url( $tag ); ?>" type="riot/tag"></script>
 	<?php
