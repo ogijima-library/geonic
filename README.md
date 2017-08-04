@@ -11,3 +11,13 @@ A WordPress plugin which manages geometries.
 ```
 /wp-json/wp/v2/geometry
 ```
+
+
+## How to release new version
+
+```
+$ git tag x.x.x
+$ git push origin x.x.x
+```
+
+That's all!
