@@ -14,21 +14,19 @@
 
 require_once( dirname( __FILE__ ) . '/lib/post-type.php' );
 require_once( dirname( __FILE__ ) . '/lib/taxonomy.php' );
-require_once( dirname( __FILE__ ) . '/lib/metaboxes.php' );
+// require_once( dirname( __FILE__ ) . '/lib/metaboxes.php' );
 
 // Autoload
 require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 
-add_action( 'init', 'activate_autoupdate' );
-
-function activate_autoupdate() {
+add_action( 'init', function() {
 	$plugin_slug = plugin_basename( __FILE__ ); // e.g. `hello/hello.php`.
 	$gh_user = 'ogijima-library';                      // The user name of GitHub.
 	$gh_repo = 'geonic';       // The repository name of your plugin.
 
 	// Activate automatic update.
 	new Miya\WP\GH_Auto_Updater( $plugin_slug, $gh_user, $gh_repo );
-}
+} );
 
 add_action( 'rest_api_init', function() {
 	// register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
@@ -44,3 +42,6 @@ add_action( 'rest_api_init', function() {
 		)
 	);
 } );
+
+$map = new \Miya\WP\Custom_Field\Map( 'geonic', 'Map' );
+$map->add( 'geometry' );
