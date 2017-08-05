@@ -29,3 +29,18 @@ function activate_autoupdate() {
 	// Activate automatic update.
 	new Miya\WP\GH_Auto_Updater( $plugin_slug, $gh_user, $gh_repo );
 }
+
+add_action( 'rest_api_init', function() {
+	// register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
+	register_rest_field( 'geometry', 'geometry', array(
+		'get_callback' => function( $object ) {
+			$post_id = $object['id'];
+			return array(
+				'lat' => get_post_meta( $post_id, '_geonic-lat', true ),
+				'lng' => get_post_meta( $post_id, '_geonic-lng', true ),
+			);
+		},
+		'schema' => null,
+		)
+	);
+} );

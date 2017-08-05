@@ -55,8 +55,8 @@ function add_meta_boxes_callback( $post ) {
 	?>
 		<div id="geonic-map" style="width=100%; height:300px;"><map></map></div>
 		<p class="">
-			Latitude: <input id="geonic-lat" type="text" name="geonic-lat" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lat', true ) ); ?>">
-			Longitude: <input id="geonic-lng" type="text" name="geonic-lng" value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'geonic-lng', true ) ); ?>">
+			Latitude: <input id="geonic-lat" type="text" name="geonic-lat" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_geonic-lat', true ) ); ?>">
+			Longitude: <input id="geonic-lng" type="text" name="geonic-lng" value="<?php echo esc_attr( get_post_meta( get_the_ID(), '_geonic-lng', true ) ); ?>">
 		</p>
 		<script src="<?php echo esc_url( $tag ); ?>" type="riot/tag"></script>
 	<?php
@@ -69,7 +69,7 @@ function add_meta_boxes_callback( $post ) {
  */
 add_action( 'save_post', function( $post_id ) {
 	if ( ! empty( $_POST['geonic-latlng-nonce'] ) && wp_verify_nonce( $_POST['geonic-latlng-nonce'], 'geonic-latlng' ) ) {
-		update_post_meta( $post_id, 'geonic-lat', $_POST['geonic-lat'] );
-		update_post_meta( $post_id, 'geonic-lng', $_POST['geonic-lng'] );
+		update_post_meta( $post_id, '_geonic-lat', $_POST['geonic-lat'] );
+		update_post_meta( $post_id, '_geonic-lng', $_POST['geonic-lng'] );
 	}
 } );
