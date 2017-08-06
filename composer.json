@@ -2,5 +2,11 @@
     "require": {
         "miya/gh-auto-updater": "^1.0",
         "miya/custom-field-map": "^1.0"
+    },
+    "autoload": {
+        "files": [
+          "lib/post-type.php",
+          "lib/taxonomy.php"
+        ]
     }
 }

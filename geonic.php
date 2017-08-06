@@ -12,10 +12,6 @@
  * @package         Geonic
  */
 
-require_once( dirname( __FILE__ ) . '/lib/post-type.php' );
-require_once( dirname( __FILE__ ) . '/lib/taxonomy.php' );
-// require_once( dirname( __FILE__ ) . '/lib/metaboxes.php' );
-
 // Autoload
 require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 
