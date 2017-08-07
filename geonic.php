@@ -21,11 +21,10 @@ add_action( 'init', function() {
 	$gh_repo = 'geonic';       // The repository name of your plugin.
 
 	// Activate automatic update.
-	new Miya\WP\GH_Auto_Updater( $plugin_slug, $gh_user, $gh_repo );
+	new \Miya\WP\GH_Auto_Updater( $plugin_slug, $gh_user, $gh_repo );
 } );
 
 add_action( 'rest_api_init', function() {
-	// register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
 	register_rest_field( 'geometry', 'geometry', array(
 		'get_callback' => function( $object ) {
 			$post_id = $object['id'];
@@ -39,5 +38,5 @@ add_action( 'rest_api_init', function() {
 	);
 } );
 
-$map = new \Miya\WP\Custom_Field\Map( 'geonic', 'Map' );
+$map = new \Miya\WP\Custom_Field\Map( 'geonic', 'Latitude and Longitude' );
 $map->add( 'geometry' );
