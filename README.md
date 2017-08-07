@@ -4,7 +4,7 @@
 
 A WordPress plugin which manages geometries.
 
-![](https://www.evernote.com/l/ABXexIRE6etKZZnLfuOgw3mB0vfvwQJpJPAB/image.png)
+![](https://www.evernote.com/l/ABVTtOOiJmJJ8493HHRU2LTwQB-NyY1oAEcB/image.png)
 
 ## REST API Endpoint
 
