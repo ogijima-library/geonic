@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cd42ca37dfe3d45e1453a0ee0a8fd2a",
+    "content-hash": "b11d1fa105641e75cf75448c938ef6b6",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -50,16 +50,16 @@
         },
         {
             "name": "miya/custom-field",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/miya0001/custom-field.git",
-                "reference": "756ff0b70ec874370b0408a5461404fa4b7ca8b7"
+                "reference": "fc8823f400b34dd7fc9da088c36b0516c607749a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miya0001/custom-field/zipball/756ff0b70ec874370b0408a5461404fa4b7ca8b7",
-                "reference": "756ff0b70ec874370b0408a5461404fa4b7ca8b7",
+                "url": "https://api.github.com/repos/miya0001/custom-field/zipball/fc8823f400b34dd7fc9da088c36b0516c607749a",
+                "reference": "fc8823f400b34dd7fc9da088c36b0516c607749a",
                 "shasum": ""
             },
             "type": "library",
@@ -78,20 +78,20 @@
                     "email": "miya0001@users.noreply.github.com"
                 }
             ],
-            "time": "2017-08-07T11:59:44+00:00"
+            "time": "2017-09-27T12:22:15+00:00"
         },
         {
-            "name": "miya/custom-field-map",
-            "version": "1.7.0",
+            "name": "miya/custom-field-geometry",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/miya0001/custom-field-map.git",
-                "reference": "a016ac3cced722c60cb588bafa524fb4d7a202b2"
+                "url": "https://github.com/miya0001/custom-field-geometry.git",
+                "reference": "2889e94a6896ca802628287307f1343411099689"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miya0001/custom-field-map/zipball/a016ac3cced722c60cb588bafa524fb4d7a202b2",
-                "reference": "a016ac3cced722c60cb588bafa524fb4d7a202b2",
+                "url": "https://api.github.com/repos/miya0001/custom-field-geometry/zipball/2889e94a6896ca802628287307f1343411099689",
+                "reference": "2889e94a6896ca802628287307f1343411099689",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                     "email": "miya0001@users.noreply.github.com"
                 }
             ],
-            "time": "2017-08-07T19:08:11+00:00"
+            "time": "2017-09-27T16:59:39+00:00"
         },
         {
             "name": "miya/gh-auto-updater",
@@ -156,9 +156,11 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "miya/custom-field-geometry": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

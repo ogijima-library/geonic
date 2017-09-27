@@ -1,6 +1,44 @@
 <?php
 
 function category_init() {
+
+	register_taxonomy( 'geo-team', array( 'geometry' ), array(
+		'hierarchical'      => true,
+		'public'            => false,
+		'show_in_nav_menus' => false,
+		'show_ui'           => true,
+		'show_admin_column' => false,
+		'query_var'         => false,
+		'rewrite'           => false,
+		'capabilities'      => array(
+			'manage_terms'  => 'edit_posts',
+			'edit_terms'    => 'edit_posts',
+			'delete_terms'  => 'edit_posts',
+			'assign_terms'  => 'edit_posts'
+		),
+		'labels'            => array(
+			'name'                       => __( 'Teams', 'geonic' ),
+			'singular_name'              => _x( 'Team', 'taxonomy general name', 'geonic' ),
+			'search_items'               => __( 'Search teams', 'geonic' ),
+			'popular_items'              => __( 'Popular teams', 'geonic' ),
+			'all_items'                  => __( 'All teams', 'geonic' ),
+			'parent_item'                => __( 'Parent category', 'geonic' ),
+			'parent_item_colon'          => __( 'Parent category:', 'geonic' ),
+			'edit_item'                  => __( 'Edit category', 'geonic' ),
+			'update_item'                => __( 'Update category', 'geonic' ),
+			'add_new_item'               => __( 'New category', 'geonic' ),
+			'new_item_name'              => __( 'New category', 'geonic' ),
+			'separate_items_with_commas' => __( 'Separate teams with commas', 'geonic' ),
+			'add_or_remove_items'        => __( 'Add or remove teams', 'geonic' ),
+			'choose_from_most_used'      => __( 'Choose from the most used teams', 'geonic' ),
+			'not_found'                  => __( 'No teams found.', 'geonic' ),
+			'menu_name'                  => __( 'Teams', 'geonic' ),
+		),
+		'show_in_rest'      => true,
+		'rest_base'         => 'geo-team',
+		'rest_controller_class' => 'WP_REST_Terms_Controller',
+	) );
+
 	register_taxonomy( 'geo-category', array( 'geometry' ), array(
 		'hierarchical'      => true,
 		'public'            => false,
