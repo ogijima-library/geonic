@@ -86,12 +86,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/miya0001/custom-field-geometry.git",
-                "reference": "2889e94a6896ca802628287307f1343411099689"
+                "reference": "12e2389b2e5991e8ebf84f2b067cd1b63a18dd1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/miya0001/custom-field-geometry/zipball/2889e94a6896ca802628287307f1343411099689",
-                "reference": "2889e94a6896ca802628287307f1343411099689",
+                "url": "https://api.github.com/repos/miya0001/custom-field-geometry/zipball/12e2389b2e5991e8ebf84f2b067cd1b63a18dd1d",
+                "reference": "12e2389b2e5991e8ebf84f2b067cd1b63a18dd1d",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                     "email": "miya0001@users.noreply.github.com"
                 }
             ],
-            "time": "2017-09-27T16:59:39+00:00"
+            "time": "2017-09-27T17:08:13+00:00"
         },
         {
             "name": "miya/gh-auto-updater",
