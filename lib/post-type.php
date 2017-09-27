@@ -21,7 +21,7 @@ function geometry_init() {
 		'hierarchical'      => false,
 		'show_ui'           => true,
 		'show_in_nav_menus' => false,
-		'supports'          => array( 'title', 'editor', 'thumbnail' ),
+		'supports'          => array( 'title', 'thumbnail' ),
 		'has_archive'       => true,
 		'rewrite'           => false,
 		'query_var'         => false,
